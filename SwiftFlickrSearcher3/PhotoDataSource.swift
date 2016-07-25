@@ -16,9 +16,7 @@ class PhotoDataSource:NSObject,UITableViewDataSource,UITableViewDelegate{
     //MARK:- Variables
     
     var tableView:UITableView!
-    //Initialize the search class Flickr
-    private var flickr = Flickr()
-    private var searches = [FlickrSearchResults]()
+    
     
     //MARK:- Initializer
     required init(favoritesOnly:Bool){

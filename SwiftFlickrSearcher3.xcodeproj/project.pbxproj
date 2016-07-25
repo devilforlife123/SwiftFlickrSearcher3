@@ -62,6 +62,7 @@
 		D62A57491D402577005E28C1 /* SwiftFlickrSearcher3 */ = {
 			isa = PBXGroup;
 			children = (
+				D691FEFC1D45E75F00112E08 /* CoreData */,
 				D62A576A1D403BF9005E28C1 /* Extensions */,
 				D62A57611D402629005E28C1 /* Others */,
 				D62A57601D40261C005E28C1 /* Storyboards & xibs */,
@@ -69,8 +70,6 @@
 				D62A575E1D4025AA005E28C1 /* ViewControllers */,
 				D62A575D1D4025A5005E28C1 /* Views */,
 				D62A575C1D402587005E28C1 /* Models */,
-				D62A57511D402577005E28C1 /* Assets.xcassets */,
-				D62A57531D402577005E28C1 /* LaunchScreen.storyboard */,
 				D62A57561D402577005E28C1 /* Info.plist */,
 			);
 			path = SwiftFlickrSearcher3;
@@ -104,6 +103,7 @@
 		D62A575F1D4025BA005E28C1 /* Assets */ = {
 			isa = PBXGroup;
 			children = (
+				D62A57511D402577005E28C1 /* Assets.xcassets */,
 			);
 			name = Assets;
 			sourceTree = "<group>";
@@ -111,6 +111,7 @@
 		D62A57601D40261C005E28C1 /* Storyboards & xibs */ = {
 			isa = PBXGroup;
 			children = (
+				D62A57531D402577005E28C1 /* LaunchScreen.storyboard */,
 				D62A574E1D402577005E28C1 /* Main.storyboard */,
 			);
 			name = "Storyboards & xibs";
@@ -130,6 +131,13 @@
 				D62A576B1D403C07005E28C1 /* NSObjectExtension.swift */,
 			);
 			name = Extensions;
+			sourceTree = "<group>";
+		};
+		D691FEFC1D45E75F00112E08 /* CoreData */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			name = CoreData;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -358,6 +366,7 @@
 				D62A575B1D402577005E28C1 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
 	};
