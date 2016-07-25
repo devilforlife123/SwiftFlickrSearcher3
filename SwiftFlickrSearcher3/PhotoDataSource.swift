@@ -8,42 +8,20 @@
 
 import Foundation
 import UIKit
+import CoreData
 
 
-class PhotoDataSource:NSObject,UITableViewDataSource,UITableViewDelegate{
+class PhotoDataSource:NSObject,UITableViewDataSource,UITableViewDelegate,NSFetchedResultsControllerDelegate{
     
+    private unowned var tableView:UITableView!
     
-    //MARK:- Variables
-    
-    var tableView:UITableView!
-    
-    
-    //MARK:- Initializer
-    required init(favoritesOnly:Bool){
+    required init(favouritesOnly:Bool){
         
-    }
-
-    //MARK:- UITableViewDataSource and UITableViewDelegate methods 
-    
-    func numberOfSectionsInTableView(tableView: UITableView) -> Int {
+        let fetchRequest = NSFetchRequest(entityName:Photo.className())
         
-        return 1
-    }
-    
-    func tableView(tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        
-        return searches.count
-    }
-    
-    
-    func tableView(tableView: UITableView, cellForRowAtIndexPath indexPath: NSIndexPath) -> UITableViewCell {
-        
-        let cell = tableView.dequeueReusableCellWithIdentifier(PhotoTableViewCell.cellIdentifier(), forIndexPath: indexPath) as! PhotoTableViewCell
-        
-
-        return cell
-        
-        
-        
+        if favouritesOnly{
+            let predicate = NSFetchRequest("%K == YES","isFavorite")
+            fetchRequest.predicate = predicate
+        }
     }
 }

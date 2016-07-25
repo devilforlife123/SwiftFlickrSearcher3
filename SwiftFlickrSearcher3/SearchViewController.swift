@@ -12,4 +12,18 @@ import UIKit
 
 class SearchViewController:UIViewController{
     
+    //MARK:-IBOutlets and Variables
+    
+    @IBOutlet var tableView:UITableView!
+    
+    let dataSource = PhotoDataSource(favouritesOnly:false)
+    
+    override func viewDidLoad() {
+        super.viewDidLoad()
+        
+        title = "FlickrSearcher3"
+        
+        dataSource.tableView = tableView
+    }
+    
 }
