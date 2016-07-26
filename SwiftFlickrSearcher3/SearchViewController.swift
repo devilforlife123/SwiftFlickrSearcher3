@@ -12,11 +12,11 @@ import UIKit
 
 class SearchViewController:UIViewController{
     
-    //MARK:-IBOutlets and Variables
-    
+    //MARK:- IBOutlets
+    @IBOutlet var searchBar:UISearchBar!
     @IBOutlet var tableView:UITableView!
     
-    let dataSource = PhotoDataSource(favouritesOnly:false)
+    let dataSource = PhotoDataSource(favoritesOnly: false)
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -24,6 +24,20 @@ class SearchViewController:UIViewController{
         title = "FlickrSearcher3"
         
         dataSource.tableView = tableView
+        tableView.delegate = dataSource
+        tableView.dataSource = dataSource
     }
     
+    override func prepareForSegue(segue: UIStoryboardSegue, sender: AnyObject?) {
+        
+    }
+    
+}
+extension SearchViewController:UISearchBarDelegate{
+    func searchBarSearchButtonClicked(searchBar: UISearchBar) {
+        if !searchBar.text!.isEmpty{
+            var controller = FlickrAPIController()
+            
+        }
+    }
 }

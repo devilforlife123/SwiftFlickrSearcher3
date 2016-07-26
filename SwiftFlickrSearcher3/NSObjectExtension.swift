@@ -14,12 +14,12 @@ extension NSObject{
     public class func flk_className()->String{
         let classString = NSStringFromClass(self)
         
-        let pieces =  classString.componentsSeparatedByString(".")
+        let pieces = classString.componentsSeparatedByString(".")
         
         if pieces.count == 2{
             return pieces[1]
         }else{
-            return classString
+            return classString 
         }
     }
 }

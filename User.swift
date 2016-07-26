@@ -9,9 +9,13 @@
 import Foundation
 import CoreData
 
-@objc(User)
-class User: NSManagedObject {
+public class User: NSManagedObject {
 
+    @NSManaged public var userID:String
+    public var name:String?
+    public var iconURLString:String?
+    
+    
 // Insert code here to add functionality to your managed object subclass
 
 }

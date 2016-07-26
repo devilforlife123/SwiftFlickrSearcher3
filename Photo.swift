@@ -10,8 +10,16 @@ import Foundation
 import CoreData
 
 
-class Photo: NSManagedObject {
+public class Photo: NSManagedObject {
 
 // Insert code here to add functionality to your managed object subclass
+    @NSManaged public var fullURLString:String
+    @NSManaged public var thumnailURLString:String
+    @NSManaged public var photoID:String
+    @NSManaged public var title:String
+    @NSManaged public var owner:User
+    @NSManaged public var isFavorite:Bool
+    
+    
 
 }

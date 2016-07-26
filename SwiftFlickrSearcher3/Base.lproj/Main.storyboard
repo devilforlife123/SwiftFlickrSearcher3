@@ -120,7 +120,7 @@
                 </navigationController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="GKK-De-pCV" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="234" y="393"/>
+            <point key="canvasLocation" x="366" y="385"/>
         </scene>
     </scenes>
     <resources>
