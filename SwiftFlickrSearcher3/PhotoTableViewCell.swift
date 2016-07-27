@@ -21,6 +21,7 @@ class PhotoTableViewCell:UITableViewCell{
     
     
     class func cellIdentifier()->String{
+        print("THis is the cellIdentifier \(flk_className())")
         return flk_className()
     }
     

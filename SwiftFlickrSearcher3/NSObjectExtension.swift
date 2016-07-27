@@ -8,6 +8,7 @@
 
 import Foundation
 import UIKit
+import CoreData
 
 extension NSObject{
     
@@ -21,5 +22,11 @@ extension NSObject{
         }else{
             return classString 
         }
+    }
+    
+    public class func flk_fetchRequestWithPredicate(predicate:NSPredicate?)->NSFetchRequest{
+        let fetchRequest = NSFetchRequest(entityName: self.flk_className())
+        fetchRequest.predicate = predicate
+        return fetchRequest
     }
 }

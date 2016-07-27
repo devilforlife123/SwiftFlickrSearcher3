@@ -22,12 +22,15 @@
                                 <rect key="frame" x="0.0" y="64" width="600" height="44"/>
                                 <color key="barTintColor" red="1" green="0.86195106580000003" blue="0.15694230179999999" alpha="1" colorSpace="calibratedRGB"/>
                                 <textInputTraits key="textInputTraits"/>
+                                <connections>
+                                    <outlet property="delegate" destination="BYZ-38-t0r" id="yV1-fK-7mj"/>
+                                </connections>
                             </searchBar>
-                            <tableView clipsSubviews="YES" contentMode="scaleToFill" fixedFrame="YES" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="44" sectionHeaderHeight="28" sectionFooterHeight="28" translatesAutoresizingMaskIntoConstraints="NO" id="Rkb-YU-Ge0">
+                            <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="44" sectionHeaderHeight="28" sectionFooterHeight="28" translatesAutoresizingMaskIntoConstraints="NO" id="Rkb-YU-Ge0">
                                 <rect key="frame" x="0.0" y="108" width="600" height="492"/>
                                 <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                 <prototypes>
-                                    <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" selectionStyle="default" accessoryType="disclosureIndicator" indentationWidth="10" rowHeight="50" id="DE9-XN-QMh" customClass="PhotoTableViewCell" customModule="SwiftFlickrSearcher3" customModuleProvider="target">
+                                    <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" selectionStyle="default" accessoryType="disclosureIndicator" indentationWidth="10" reuseIdentifier="PhotoTableViewCell" rowHeight="50" id="DE9-XN-QMh" customClass="PhotoTableViewCell" customModule="SwiftFlickrSearcher3" customModuleProvider="target">
                                         <rect key="frame" x="0.0" y="28" width="600" height="50"/>
                                         <autoresizingMask key="autoresizingMask"/>
                                         <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="DE9-XN-QMh" id="RhA-KE-id1">
@@ -89,8 +92,12 @@
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="calibratedWhite"/>
                         <constraints>
                             <constraint firstAttribute="trailing" secondItem="Aid-cy-GEE" secondAttribute="trailing" id="2SN-6N-zt6"/>
+                            <constraint firstItem="Rkb-YU-Ge0" firstAttribute="leading" secondItem="8bC-Xf-vdC" secondAttribute="leading" id="3bv-JA-ayW"/>
+                            <constraint firstItem="Rkb-YU-Ge0" firstAttribute="top" secondItem="Aid-cy-GEE" secondAttribute="bottom" id="5pO-0h-AhT"/>
                             <constraint firstItem="Aid-cy-GEE" firstAttribute="top" secondItem="y3c-jy-aDJ" secondAttribute="bottom" id="BRu-t0-GcD"/>
                             <constraint firstItem="Aid-cy-GEE" firstAttribute="leading" secondItem="8bC-Xf-vdC" secondAttribute="leading" id="EVD-Wh-gSo"/>
+                            <constraint firstAttribute="trailing" secondItem="Rkb-YU-Ge0" secondAttribute="trailing" id="T5W-Hb-73b"/>
+                            <constraint firstItem="wfy-db-euE" firstAttribute="top" secondItem="Rkb-YU-Ge0" secondAttribute="bottom" id="ZB0-V3-W16"/>
                         </constraints>
                     </view>
                     <navigationItem key="navigationItem" id="J8e-J8-RvB"/>

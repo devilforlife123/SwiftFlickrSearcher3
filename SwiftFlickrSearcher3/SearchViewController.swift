@@ -12,9 +12,11 @@ import UIKit
 
 class SearchViewController:UIViewController{
     
-    //MARK:- IBOutlets
-    @IBOutlet var searchBar:UISearchBar!
-    @IBOutlet var tableView:UITableView!
+    //IBOutlets
+    @IBOutlet  weak var tableView:UITableView!
+    @IBOutlet weak var searchBar:UISearchBar!
+    
+    //Variables and constants
     
     let dataSource = PhotoDataSource(favoritesOnly: false)
     
@@ -24,20 +26,31 @@ class SearchViewController:UIViewController{
         title = "FlickrSearcher3"
         
         dataSource.tableView = tableView
-        tableView.delegate = dataSource
         tableView.dataSource = dataSource
-    }
-    
-    override func prepareForSegue(segue: UIStoryboardSegue, sender: AnyObject?) {
-        
+        tableView.delegate = dataSource
+
     }
     
 }
 extension SearchViewController:UISearchBarDelegate{
+    
     func searchBarSearchButtonClicked(searchBar: UISearchBar) {
+        
         if !searchBar.text!.isEmpty{
-            var controller = FlickrAPIController()
+           //If the searchBar is not Empty
+            //Create the controller that will do the searching
+           let controller = FlickrAPIController()
+            
+            controller.fetchPhotosForText(searchBar.text!, completion: { (success, results) in
+                if let unwrappedResult = results{
+                    self.dataSource.deleteAllData()
+                    FlickrJSONParser.parsePhotoListDictionary(unwrappedResult)
+                    CoreDataStack.sharedInstance().saveMainContext()
+                }
+            })
             
         }
+        
     }
+    
 }

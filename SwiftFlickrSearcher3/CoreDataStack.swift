@@ -68,6 +68,14 @@ public class CoreDataStack{
         return _managedObjectModel!
     }
     
+    func saveMainContext(){
+        do{
+            try mainContext().save()
+        }catch let error as NSError{
+            assert(false, "ERROR SAVING CONTEXT: \(error)")
+        }
+    }
+    
     
     func databaseFileURL()->NSURL{
         let documentsDirectory = NSFileManager.defaultManager().URLsForDirectory(NSSearchPathDirectory.DocumentDirectory, inDomains: NSSearchPathDomainMask.UserDomainMask).last! as NSURL

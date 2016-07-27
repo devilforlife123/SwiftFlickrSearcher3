@@ -21,7 +21,6 @@ extension NSString{
         let subDirectory = (docs as NSString).stringByAppendingPathComponent(subDirectoryName)
         flk_createDirectoryIfNeeded(subDirectory)
         return subDirectory
-        
     }
     
     public class func flk_createDirectoryIfNeeded(subDirectory:String){

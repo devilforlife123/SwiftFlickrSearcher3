@@ -18,4 +18,26 @@ public class User: NSManagedObject {
     
 // Insert code here to add functionality to your managed object subclass
 
+    class func userInContextOrNew(context:NSManagedObjectContext,userID:String)->User{
+        let predicate = NSPredicate(format: "userID == [c]'\(userID)'")
+        let fetchRequest = flk_fetchRequestWithPredicate(predicate)
+        var results:[User]?
+        
+        do{
+            results = try context.executeFetchRequest(fetchRequest) as? [User]
+        }catch let error as NSError{
+            NSLog("Error encountered \(error)")
+        }
+        
+        if let unwrappedResults = results{
+            if let user = unwrappedResults.first{
+                return user
+            }
+        }
+        
+        
+        let created = flk_newInContext(context) as! User
+        created.userID = userID
+        return created 
+    }
 }
