@@ -24,8 +24,8 @@ class SearchViewController:UIViewController{
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        title = "SwiftFlickrSearcher3"
         
+        title = "SwiftFlickrSearcher3"
         tableView.dataSource = dataSource
         tableView.delegate = dataSource
         dataSource.tableView = tableView

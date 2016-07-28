@@ -21,7 +21,7 @@ class PhotoDataSource:NSObject,UITableViewDataSource,UITableViewDelegate,NSFetch
         let fetchRequest = NSFetchRequest(entityName: Photo.flk_className())
         
         if favoritesOnly{
-            let predicate = NSPredicate(format: "%K == YES", "favorites")
+            let predicate = NSPredicate(format: "%K == YES", "isFavorite")
             fetchRequest.predicate = predicate
         }
         
@@ -86,8 +86,6 @@ class PhotoDataSource:NSObject,UITableViewDataSource,UITableViewDelegate,NSFetch
         }
         
         downloader.setImageFromURLString(photoAtIndex.thumbnailURLString, toImageView: cell.photoImageView)
-        
-        
         
         return cell 
         

@@ -28,6 +28,7 @@
 		D6D0299E1D477A2C00043F87 /* FlickrAPIComponents.swift in Sources */ = {isa = PBXBuildFile; fileRef = D6D0299D1D477A2C00043F87 /* FlickrAPIComponents.swift */; };
 		D6D029A01D4782BE00043F87 /* FlickrJSONParser.swift in Sources */ = {isa = PBXBuildFile; fileRef = D6D0299F1D4782BE00043F87 /* FlickrJSONParser.swift */; };
 		D6D029A21D47863900043F87 /* NSManagedObjectExtension.swift in Sources */ = {isa = PBXBuildFile; fileRef = D6D029A11D47863900043F87 /* NSManagedObjectExtension.swift */; };
+		D6EA74241D49B54700926F5B /* FavoritesViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = D6EA74231D49B54700926F5B /* FavoritesViewController.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -54,6 +55,7 @@
 		D6D0299D1D477A2C00043F87 /* FlickrAPIComponents.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = FlickrAPIComponents.swift; sourceTree = "<group>"; };
 		D6D0299F1D4782BE00043F87 /* FlickrJSONParser.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = FlickrJSONParser.swift; sourceTree = "<group>"; };
 		D6D029A11D47863900043F87 /* NSManagedObjectExtension.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = NSManagedObjectExtension.swift; sourceTree = "<group>"; };
+		D6EA74231D49B54700926F5B /* FavoritesViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = FavoritesViewController.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -126,6 +128,7 @@
 			children = (
 				D62A57621D40264B005E28C1 /* SearchViewController.swift */,
 				D614161D1D485624007F3E90 /* PhotoDetailViewController.swift */,
+				D6EA74231D49B54700926F5B /* FavoritesViewController.swift */,
 			);
 			name = ViewControllers;
 			sourceTree = "<group>";
@@ -265,6 +268,7 @@
 				D614161C1D484252007F3E90 /* FlickrDownloadOperation.swift in Sources */,
 				D6D029931D46D47B00043F87 /* CoreDataStack.swift in Sources */,
 				D691FF051D45EB0E00112E08 /* Photo.swift in Sources */,
+				D6EA74241D49B54700926F5B /* FavoritesViewController.swift in Sources */,
 				D6D029A21D47863900043F87 /* NSManagedObjectExtension.swift in Sources */,
 				D691FEFF1D45E95500112E08 /* FlickrSearcher3.xcdatamodeld in Sources */,
 				D6D0299E1D477A2C00043F87 /* FlickrAPIComponents.swift in Sources */,
