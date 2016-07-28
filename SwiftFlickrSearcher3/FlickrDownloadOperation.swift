@@ -9,10 +9,10 @@
 import Foundation
 import UIKit
 
-class FlickrDownloadOperation:NSOperation{
+class FlickrPhotoDownloadOperation:NSOperation{
     
-    var imageView:UIImageView?
     var urlString:String?
+    var imageView:UIImageView?
     
     init(urlString inUrlString:String,imageView inImageView:UIImageView){
         self.urlString = inUrlString
@@ -21,22 +21,20 @@ class FlickrDownloadOperation:NSOperation{
     
     override func main() {
         autoreleasepool { 
-            let downloadURL = NSURL(string:self.urlString!)!
-            let filePath = FlickrDownloadOperation.downloadDirectoryPathForURLString(self.urlString!)
+            let downloadURL = NSURL(string: self.urlString!)!
+            let filePath = FlickrPhotoDownloadOperation.downloadDirectoryPathForURLString(self.urlString!)
             let imageData = NSData(contentsOfURL:downloadURL)
+            
             if let unwrappedData = imageData{
-                let image = UIImage(data: unwrappedData)
+                let image = UIImage(data:unwrappedData)
                 if let unwrappedImage = image{
                     self.setImageToImageView(unwrappedImage,imageView:self.imageView)
                 }
-                
-                //Save the Data Automatically
+                //Cached the data
                 unwrappedData.writeToFile(filePath, atomically: false)
             }
-            
         }
     }
-    
     
     func setImageToImageView(image:UIImage,imageView:UIImageView?){
         NSOperationQueue.mainQueue().addOperationWithBlock { 
@@ -46,24 +44,21 @@ class FlickrDownloadOperation:NSOperation{
         }
     }
     
+    
     class func cachedImageForURLString(urlString:String)->UIImage?{
-        //get the filePath
+        
         let filePath = downloadDirectoryPathForURLString(urlString)
-        //Get the imageData 
         let imageData = NSData(contentsOfFile: filePath)
-        if let unwrappedData = imageData{
-            let image = UIImage(data: unwrappedData)
+        if let unwrappedImageData = imageData{
+            let image = UIImage(data: unwrappedImageData)
             if let unwrappedImage = image{
                 return unwrappedImage
             }
         }
-        
-        return nil 
-        
+        return nil
     }
     
     class func downloadDirectoryPathForURLString(urlString:String)->String{
-        
         let serverRange = (urlString as NSString).rangeOfString("flickr.com/")
         let originalPath = (urlString as NSString).substringFromIndex(serverRange.location + serverRange.length)
         let underscored = pathWithUnderscores(originalPath)
@@ -72,12 +67,12 @@ class FlickrDownloadOperation:NSOperation{
     }
     
     class func pathWithUnderscores(originalPath:String)->String{
-        return originalPath.stringByReplacingOccurrencesOfString("/", withString: "_")
+        return (originalPath as NSString).stringByReplacingOccurrencesOfString("/", withString: "_")
     }
     
     class func pathToPhotoDownloadDirectory()->String{
+        
         let downloadsPath = NSString.flk_createdDocumentsSubDirectory("photoDownloads")
         return downloadsPath
     }
-    
 }

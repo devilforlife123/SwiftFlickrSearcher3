@@ -17,7 +17,7 @@ class PhotoTableViewCell:UITableViewCell{
     @IBOutlet var photoImageView:UIImageView!
     @IBOutlet var titleLabel:UILabel!
     @IBOutlet var userNameLabel:UILabel!
-    @IBOutlet var favouriteIcon:UIImageView!
+    @IBOutlet var favoriteIcon:UIImageView!
     
     
     class func cellIdentifier()->String{

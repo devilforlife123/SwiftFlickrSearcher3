@@ -12,45 +12,47 @@ import UIKit
 
 class SearchViewController:UIViewController{
     
-    //IBOutlets
-    @IBOutlet  weak var tableView:UITableView!
+    
+    //MARK:- IBOutlets 
+    
     @IBOutlet weak var searchBar:UISearchBar!
+    @IBOutlet weak var tableView:UITableView!
     
-    //Variables and constants
+    //MARK:- Constants and Variables
     
-    let dataSource = PhotoDataSource(favoritesOnly: false)
+    private let dataSource = PhotoDataSource(favoritesOnly: false)
     
     override func viewDidLoad() {
         super.viewDidLoad()
+        title = "SwiftFlickrSearcher3"
         
-        title = "FlickrSearcher3"
-        
-        dataSource.tableView = tableView
         tableView.dataSource = dataSource
         tableView.delegate = dataSource
-
+        dataSource.tableView = tableView
     }
     
+    override func prepareForSegue(segue: UIStoryboardSegue, sender: AnyObject?) {
+        if (segue.identifier == "ShowDetail"){
+            let tappedCell = sender as! PhotoTableViewCell
+            let detail = segue.destinationViewController as! PhotoDetailViewController
+            detail.photo = dataSource.photoForCell(tappedCell)
+            
+        }
+    }
 }
 extension SearchViewController:UISearchBarDelegate{
     
     func searchBarSearchButtonClicked(searchBar: UISearchBar) {
-        
         if !searchBar.text!.isEmpty{
-           //If the searchBar is not Empty
-            //Create the controller that will do the searching
-           let controller = FlickrAPIController()
-            
-            controller.fetchPhotosForText(searchBar.text!, completion: { (success, results) in
-                if let unwrappedResult = results{
-                    self.dataSource.deleteAllData()
-                    FlickrJSONParser.parsePhotoListDictionary(unwrappedResult)
+            let controller = FlickrAPIController()
+            controller.fetchPhotosForTerm(searchBar.text!, flickrAPICompletion: { (success, resultsDictionary) in
+                if let unwrappedResults = resultsDictionary{
+                   FlickrJSONParser.parsePhotoListDictionary(unwrappedResults)
                     CoreDataStack.sharedInstance().saveMainContext()
                 }
+                
             })
             
         }
-        
     }
-    
 }
